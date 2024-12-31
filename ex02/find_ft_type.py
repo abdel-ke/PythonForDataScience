@@ -9,7 +9,7 @@ def all_thing_is_obj(object: any) -> int:
     elif t is dict:
         print('Dict :', t)
     elif t is str:
-        print(object,'is in the kitchen :', t)
+        print(object, 'is in the kitchen :', t)
     else:
         print('Type not found')
     return 42

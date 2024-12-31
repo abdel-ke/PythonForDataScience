@@ -2,12 +2,12 @@ import sys
 import string
 
 
-def display(upper, lower, digits, spaces, punctuation):
+def display(s1, upper, lower, digits, spaces, punctuation):
     """
     display the number of upper-case characters, lower-case characters,
     punctuation characters, digits and spaces.
     """
-    print("The text contains", len(str), "characters:")
+    print("The text contains", len(s1), "characters:")
     print(upper, "upper letters")
     print(lower, "lower letters")
     print(punctuation, "punctuation marks")
@@ -15,7 +15,7 @@ def display(upper, lower, digits, spaces, punctuation):
     print(digits, "digits")
 
 
-def building(str):
+def building(s1):
     """ this function is to count the sums of its upper-case characters,
         lower-case characters, punctuation characters,
         digits and spaces.
@@ -25,7 +25,7 @@ def building(str):
     digits = 0
     spaces = 0
     punctuation = 0
-    for c in str:
+    for c in s1:
         if c.islower():
             lower += 1
         elif c.isupper():
@@ -36,7 +36,7 @@ def building(str):
             punctuation += 1
         elif c == ' ' or c == '\t':
             spaces += 1
-    display(upper, lower, digits, spaces, punctuation)
+    display(s1, upper, lower, digits, spaces, punctuation)
 
 
 def main(argv):

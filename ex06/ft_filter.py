@@ -1,10 +1,9 @@
-def ft_filter(function, item):
+def ft_filter(function, items):
     """
     Return an iterator yielding those items of iterable for which
     function(item) is true. If function is None,
     return the items that are true."""
-    lst = list()
-    for i in item:
-        if function(i):
-            lst.append(i)
-    return lst
+    if function is None:
+        def function(x):
+            return x
+    return [x for x in items if function(x)]
