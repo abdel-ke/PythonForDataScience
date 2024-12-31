@@ -51,7 +51,8 @@ def main(argv):
             text = input('What is the text to count?\n')
             building(text)
         elif len(argv) != 2:
-            raise AssertionError("AssertionError: Too many arguments provided")
+            raise AssertionError(
+                "AssertionError: more than one argument are provided")
         else:
             building(argv[1])
     except AssertionError as e:
