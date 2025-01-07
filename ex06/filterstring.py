@@ -1,21 +1,21 @@
-from ft_filter import ft_filter
+import sys
 
 
-def is_even(n):
-    """ check if the number is even """
-    return n % 2 == 0
+def filter_string(s, n):
+    res = (lambda spltd, n: [s for s in spltd if len(s) >= n])(s, n)
+    print(res)
 
 
-if __name__ == "__main__":
-    """ Main function """
+if __name__ == '__main__':
     try:
-        lst = [-3, -2, -1, 0, 1, 2, 4, 5, 6]
-        ret = ft_filter(is_even, lst)
-        for item in ret:
-            print(item)
-        print("________________")
-        ret = ft_filter(None, lst)
-        for item in ret:
-            print(item)
-    except Exception as e:
-        print('TypeError:', e)
+        argv = sys.argv
+        if (len(argv) != 3):
+            raise AssertionError("AssertionError: the arguments are bad")
+        try:
+            n = int(argv[2])
+        except ValueError:
+            raise AssertionError("AssertionError: the arguments are bad")
+        splitted = argv[1].split()
+        filter_string(splitted, n)
+    except AssertionError as e:
+        print(e)
