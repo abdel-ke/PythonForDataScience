@@ -19,6 +19,9 @@ def give_bmi(
         if not all(isinstance(h, (int, float)) for h in height):
             print("Error: height must be a list of int or float!!")
             return []
+        if not all(isinstance(w, (int, float)) for w in weight):
+            print("Error: weight must be a list of int or float!!")
+            return []
         len_h = len(height)
         len_w = len(weight)
         if len_h != len_w:
@@ -26,8 +29,7 @@ def give_bmi(
             return []
         bmi = []
         for i in range(len(height)):
-            result = weight[i] / height[i] ** 2
-            print(weight[i], "/", height[i], height[i] ** 2)
+            result = weight[i] / (height[i] ** 2)
             bmi.append(result)
         return bmi
     except Exception as e:
@@ -36,8 +38,7 @@ def give_bmi(
 
 
 def apply_limit_checker(bmi: list[int | float], limit: int) -> bool:
-    """
-    Check if the input for apply_limit is valid.
+    """Check if the input for apply_limit is valid.
     Args:
         bmi (list[int | float]): List of BMI values.
         limit (int): The limit to apply.
@@ -63,8 +64,7 @@ def apply_limit_checker(bmi: list[int | float], limit: int) -> bool:
 
 
 def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
-    """
-    Apply a limit to the BMI values.
+    """Apply a limit to the BMI values.
     Args:
         bmi (list[int | float]): List of BMI values.
         limit (int): The limit to apply.
@@ -84,9 +84,9 @@ def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
         return []
 
 
-if __name__ == "__main__":
-    height = [2.71, 1.15]
-    weight = [165.3, 38.4]
-    bmi = give_bmi(height, weight)
-    print(bmi, type(bmi))
-    print(apply_limit(bmi, 26))
+# if __name__ == "__main__":
+#     height = [2.71, 1.15]
+#     weight = [165.3, 38.4]
+#     bmi = give_bmi(height, weight)
+#     print(bmi, type(bmi))
+#     print(apply_limit(bmi, 26))
