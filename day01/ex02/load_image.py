@@ -1,10 +1,11 @@
 import numpy as np
-import PIL as pil
+from PIL import Image
 
 
 def ft_load(path: str) -> np.array:  # (you can return to the desired format)
+    """Load an image from the specified path and return it as a numpy array."""
     try:
-        img = pil.Image.open(path)
+        img = Image.open(path)
         arr = np.array(img)
         print(f"The shape of image is: {arr.shape}")
         print(arr)
