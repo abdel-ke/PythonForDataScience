@@ -4,29 +4,27 @@ from PIL import Image
 import matplotlib.pyplot as plt
 
 
-def center_zoom(data, zoom_factor=2):
-    """
-    Zoom into the center of an image (NumPy array) without resizing.
-    zoom_factor > 1 means zooming in (smaller crop).
-    """
-    h, w = data.shape[:2]
-
-    new_h = int(h / zoom_factor)
-    new_w = int(w / zoom_factor)
-
-    start_y = int((h - new_h) / 2)
-    start_x = int((w - new_w) / 2)
-    end_y = start_y + new_h
-    end_x = start_x + new_w
-    return data[start_y:end_y, start_x:end_x]
+def crop_center_image(data):
+    """Crop the center of a 3D NumPy array (RGB image)
+    Args:
+        data (np.array): The input image as a 3D NumPy array with shape
+        (height, width, channels).
+    Returns:
+        np.array: The cropped image as a 3D NumPy array."""
+    height, width = data.shape[:2]
+    start_x = int(width / 2.2)
+    end_x = int((width / 2.6) + start_x)
+    start_y = int(height / 10)
+    end_y = int((height / 1.8) + start_y)
+    zoomed = data[start_y:end_y, start_x:end_x]
+    return zoomed
 
 
 def main():
+    """Main function to load an image, crop it, and display the result."""
     try:
         data = ft_load("../animal.jpeg")
-        start_x, end_x = 460, 850
-        start_y, end_y = 70, 500
-        zoomed = data[start_y:end_y, start_x:end_x]
+        zoomed = crop_center_image(data)
         img = Image.fromarray(zoomed).convert('L')
         arr = np.array(img)[:, :, np.newaxis]
         print(f"New shape after slicing: {arr.shape}")

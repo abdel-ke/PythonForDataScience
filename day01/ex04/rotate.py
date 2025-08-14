@@ -3,6 +3,22 @@ import numpy as np
 from load_image import ft_load
 
 
+def crop_center_image(data):
+    """Crop the center of a 2D NumPy array (grayscale image)
+    Args:
+        data (np.array): The input image as a 2D NumPy array with shape
+        (height, width).
+    Returns:
+        np.array: The cropped image as a 2D NumPy array."""
+    height, width = data.shape[:2]
+    start_x = int(width / 2.2)
+    end_x = int((width / 2.6) + start_x)
+    start_y = int(height / 10)
+    end_y = int((height / 1.8) + start_y)
+    zoomed = data[start_y:end_y, start_x:end_x]
+    return zoomed
+
+
 def transpose_image(data) -> np.array:
     """Transpose the given 2D NumPy array (image)
     by swapping its rows and columns.
@@ -21,11 +37,11 @@ def transpose_image(data) -> np.array:
 
 
 def main():
+    """Main function to demonstrate image loading, cropping
+    , and transposing."""
     try:
-        data = ft_load("../a nimal.jpeg")
-        start_x, end_x = 460, 850
-        start_y, end_y = 70, 500
-        clipped = data[start_y: end_y, start_x: end_x]
+        data = ft_load("../animal.jpeg")
+        clipped = crop_center_image(data)
         # display shape and data of image
         print(f"The shape of image is: {clipped.shape}")
         print(clipped)
