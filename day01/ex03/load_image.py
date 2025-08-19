@@ -11,6 +11,8 @@ def ft_load(path: str) -> np.array:
         or an empty listif an error occurs.
     """
     try:
+        if not path.lower().endswith(("jpg", "jpeg")):
+            raise AssertionError("Only JPG and JPEG formats are supported.")
         img = Image.open(path)
         arr = np.array(img)
         print(f"The shape of image is: {arr.shape}")
