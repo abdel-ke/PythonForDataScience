@@ -11,22 +11,17 @@ def give_bmi(
     """
     try:
         if not height or not weight:
-            print("Error: height and weight must not be empty!!")
-            return []
+            raise ValueError("Height and weight must not be empty!!")
         if not isinstance(height, list) or not isinstance(weight, list):
-            print("Error: height and weight must be a list!!")
-            return []
+            raise ValueError("Height and weight must be a list!!")
         if not all(isinstance(h, (int, float)) for h in height):
-            print("Error: height must be a list of int or float!!")
-            return []
+            raise ValueError("Height must be a list of int or float!!")
         if not all(isinstance(w, (int, float)) for w in weight):
-            print("Error: weight must be a list of int or float!!")
-            return []
-        len_h = len(height)
-        len_w = len(weight)
-        if len_h != len_w:
-            print("Error: size of height and weight are not the same!!")
-            return []
+            raise ValueError("Weight must be a list of int or float!!")
+        if len(height) != len(weight):
+            raise ValueError(
+                "Height and weight lists must have the same length."
+                )
         bmi = []
         for i in range(len(height)):
             result = weight[i] / (height[i] ** 2)
