@@ -1,6 +1,7 @@
 import pandas as pd
 import os
 
+
 def load(path: str) -> pd.DataFrame:
     """
     Load a CSV dataset from the specified path and return it as a pandas
