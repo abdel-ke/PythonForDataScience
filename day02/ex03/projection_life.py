@@ -3,9 +3,9 @@ import matplotlib.pyplot as plt
 
 
 def projection_life(income, life, year):
-    assert year in income, \
+    assert year in income.columns, \
         f"the year {year} not exist in data"
-    assert year in life, \
+    assert year in life.columns, \
         f"the year {year} not exist in data"
 
     income_data = income[year]
