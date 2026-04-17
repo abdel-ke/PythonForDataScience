@@ -2,12 +2,12 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # 1. Create a DataFrame with two columns
-df = pd.DataFrame({
-    'Coutry': [2019, 2020, 2021, 2022, 2023, 2024],
-    'Khouriba': [300, 0, 400, 200, 250, 300],
-    'BenGurir': [150, 0, 300, 200, 300, 250],
-    'Tetouan': [0, 0, 0, 100, 80, 120]
-})
+# df = pd.DataFrame({
+#     'Coutry': [2019, 2020, 2021, 2022, 2023, 2024],
+#     'Khouriba': [300, 0, 400, 200, 250, 300],
+#     'BenGurir': [150, 0, 300, 200, 300, 250],
+#     'Tetouan': [0, 0, 0, 100, 80, 120]
+# })
 
 df = pd.DataFrame({
     'Country': ['Khouribga', 'BenGurir', 'Tetouan'],

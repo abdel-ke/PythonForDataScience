@@ -1,13 +1,18 @@
 from load_csv import load
 
 
-dataset = load("life_expectancy_years.csv")
-print("\nTEST 1\nprintig the first 5 row from the dataset\n")
-print("-----------------------------------------------------")
-print(dataset.head(1))
-print("-----------------------------------------------------")
-print("\nTEST 2\nfuull dataset\n")
-print(dataset)
+def main():
+    print("TEST 1 (file exists)")
+    dataset = load("life_expectancy_years.csv")
+    print(dataset)
 
-baddataset = load("nani.wtf")
-print(baddataset)
+    print("TEST 2 (file does not exist)")
+    baddataset = load("nani.wtf")
+    print(baddataset)
+
+    print("TEST 3 (print the load __doc__)")
+    print(load.__doc__)
+
+
+if __name__ == "__main__":
+    main()
